@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+  let availableTickets, ticketsSold, capacity;
     fetch('http://localhost:3000/films/1')
     .then(response => response.json())
     .then(film => {
@@ -6,9 +7,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const poster = film.poster;
         const runtime = film.runtime;
         const showtime = film.showtime;
-        const ticketsSold = film.tickets_sold;
-        const capacity = film.capacity;
-        const availableTickets = capacity - ticketsSold;
+        ticketsSold = film.tickets_sold;
+        capacity = film.capacity;
+        availableTickets = capacity - ticketsSold;
         
     
         const filmTitle = document.getElementById('film-title');
@@ -39,6 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const title = movie.title;
       const list = document.createElement('li');
       list.textContent = title;
+      list.classList.add('film', 'item');
       list.addEventListener('click', () => {
         displayMovieDetails(id);
       });
@@ -75,6 +77,8 @@ document.addEventListener('DOMContentLoaded', () => {
           const updatedAvailableTickets = availableTickets - 1;
           ticketsSoldElement.textContent = `Tickets Sold: ${updatedTicketsSold}`;
           availableTicketsElement.textContent = `Available Tickets: ${updatedAvailableTickets}`;
+          ticketsSold = updatedTicketsSold; 
+          availableTickets = updatedAvailableTickets;
         } else {
           alert('Sorry, the showing is sold out.');
         }

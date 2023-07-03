@@ -1,4 +1,23 @@
+* {
+background-color: aliceblue;
+}
 img {
     width: 100px;
     height: 100px;
+}
+
+.film {
+    list-style: none;
+    background-color: blue;
+    color: white;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+#buy-ticket {
+    background-color: brown;
+    color: white;
+    font-weight: bold;
+
 }
