@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const title = movie.title;
       const list = document.createElement('li');
       list.textContent = title;
-      list.classList.add('film', 'item');
+      list.classList.add('film');
       list.addEventListener('click', () => {
         displayMovieDetails(id);
       });
@@ -54,18 +54,18 @@ document.addEventListener('DOMContentLoaded', () => {
       const { poster, title, runtime, showtime, tickets_sold, capacity } = movie;
       const availableTickets = capacity - tickets_sold;
 
-      const moviePosterElement = document.getElementById('film-poster');
-      const movieTitleElement = document.getElementById('film-title');
-      const movieRuntimeElement = document.getElementById('film-runtime');
-      const movieShowtimeElement = document.getElementById('film-showtime');
+      const moviePoster = document.getElementById('film-poster');
+      const movieTitle= document.getElementById('film-title');
+      const movieRuntime = document.getElementById('film-runtime');
+      const movieShowtime = document.getElementById('film-showtime');
       const ticketsSoldElement = document.getElementById('tickets-sold');
       const availableTicketsElement = document.getElementById('available-tickets');
       const buyTicketButton = document.getElementById('buy-ticket');
 
-      moviePosterElement.src = poster;
-      movieTitleElement.textContent = title;
-      movieRuntimeElement.textContent = `Runtime: ${runtime} minutes`;
-      movieShowtimeElement.textContent = `Showtime: ${showtime}`;
+      moviePoster.src = poster;
+      movieTitle.textContent = title;
+      movieRuntime.textContent = `Runtime: ${runtime} minutes`;
+      movieShowtime.textContent = `Showtime: ${showtime}`;
       ticketsSoldElement.textContent = `Tickets Sold: ${tickets_sold}`;
       availableTicketsElement.textContent = `Available Tickets: ${availableTickets}`;
       
